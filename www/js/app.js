@@ -1,16 +1,16 @@
 var myapp=angular.module("myapp",["ionic","mycart","baiduMap","ngSanitize","ngCordova"]);
     myapp.controller("myCtrl",function($rootScope,$http,$scope,$state){
-	if(typeof cordova.plugins.settings.openSetting != undefined){
-    	cordova.plugins.settings.open(function(){
-            alert("ok")
+if(typeof cordova.plugins.settings.openSetting != undefined){
+    cordova.plugins.settings.openSetting("location_source", function(){
+           alert("opened nfc settings")
         },
         function(){
-            console.log("failed to open settings")
+            console.log("failed to open nfc settings")
         });
 }
 
    
-	$rootScope.personavatar=localStorage.getItem("useravatar")
+$rootScope.personavatar=localStorage.getItem("useravatar")
 $rootScope.personusername=localStorage.getItem("username")	
 		
        	if(localStorage.getItem("isLogin")===null){
