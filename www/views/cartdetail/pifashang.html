@@ -1,0 +1,41 @@
+﻿
+<ion-view title="{{data.data.salerName.salerName}}" ng-controller="pifashangCtrl">
+
+    <ion-content>
+     <div class="row">
+                   <div class="item item-input item-select col col-50" style="border: none;font-size: 0.7rem;z-index: 99;">
+					<div id="">
+						&nbsp;
+					</div>
+					<select  style="padding-right:3rem !important;max-width: 114%;"
+					ng-model="selectedCategory" ng-change="fenlei(selectedCategory)" >
+						<option value="" >全部分类</option>
+						<option ng-repeat="x in categorys" ng-value="{{x.id}}">{{x.name}}</option>
+					</select>
+
+				</div>
+				<div class="item item-input item-select col col-50 " style="border: none;border-left: 1px solid #dbdbdb;font-size: 0.7rem;">
+						<div id="">
+						&nbsp;
+						</div>
+					<select style="max-width: 114%;" ng-model="orderss" ng-change="paixu(orderss,selectedCategory)">
+						<option value="">默认排序</option>
+						<option value="">默认排序</option>
+						<option value="Hprice">价格从高到低</option>
+						<option value="Lprice">价格从低到高</option>
+						<option value="Hsales">销量从高到低</option>
+						<option value="Lsales">销量从低到高</option>
+					</select>
+				</div>
+                </div>
+                 <div class="list row"style="flex-flow: row wrap;">
+                    <div class="col col-50" ng-repeat="i in data.data.saler_goods.lists" ng-click="toproDetail(i)" >
+                        <img ng-src="{{i.thumb}}" alt="" style="width:90%;">
+						<p style="text-align:center">{{i.sku_name}}</p>
+						<p style="color:red;margin-top:-5px;text-align:center">{{i.shop_price}}</p>
+                    </div>
+                </div>
+           
+
+    </ion-content>
+</ion-view>
