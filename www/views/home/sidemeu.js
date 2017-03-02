@@ -5,54 +5,54 @@ angular.module("myapp").controller("sidemeuCtrl",function($ionicModal,$ionicActi
        var busLoginUrl=$rootScope.localhost+"index.php?m=goods&c=api&a=seller_login";
       
        
-       $scope.showAlert = function() {
+         $scope.showAlert = function() {
             $ionicPopup.alert({
-                title: '提示',
-                template: '请输入账号密码'
+                title: '请输入账号密码'
+              
             });
         };
         $scope.showAlert1 = function() {
             $ionicPopup.alert({
-                title: '提示',
-                template: '信息未填满或两次密码不一致'
+               
+                title: '信息未填满或两次密码不一致'
             });
         };
         $scope.showErrorAlert = function() {
             $ionicPopup.alert({
-                title: '提示',
-                template: '您两次输入的密码不一致'
+               
+                title: '您两次输入的密码不一致'
             });
         };
         $scope.showRegSuccessAlert = function() {
             $ionicPopup.alert({
-                title: '提示',
-                template: '注册成功'
+               
+                title: '注册成功'
             });
         };
         $scope.showLoginSuccessAlert = function() {
             $ionicPopup.alert({
-                title: '提示',
-                template: '登录成功'
+               
+                title: '登录成功'
             }).then(function (res) {
 			
 		});
         };
         $scope.showLoginErrorAlert = function() {
            $ionicPopup.alert({
-                title: '提示',
-                template: '密码错误'
+              
+                title: '密码错误'
             });
         };
         $scope.showRegErrorAlert = function() {
             $ionicPopup.alert({
-                title: '提示',
-                template: '该手机已被注册或格式不对'
+               
+                title: '该手机已被注册或格式不对'
             });
         };
         $scope.showGaiAlert = function(word) {
             $ionicPopup.alert({
-                title: '提示',
-                template: word
+              
+                title: word
             });
         };
      //--------------------------------------------------------------------//

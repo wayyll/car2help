@@ -22,7 +22,7 @@ angular.module("myapp").controller("activityCtrl",function($ionicViewSwitcher,$s
     //trustAsResourceUrl("http://static.boosj.com/v/swf/w_player1.0.swf?vid=5454068&amp;p=1&amp;f=1&amp;s=1&amp;r=1&amp;m=1&amp;a=0");
     //$scope.video_url2 = $sce.
     //trustAsResourceUrl("http://www.b1ss.com/app/admin//app/admin/statics/js/kindeditor/attached/file/20170117/20170117092930_72223.mp4");
-	$scope.deatil_videoUrl=$rootScope.localhost+"6666.wmv"
+	$scope.deatil_videoUrl="https://vplscdn.videojj.com/video/experience.mp4" 
 	$scope.newUrl = $sce.trustAsResourceUrl($scope.deatil_videoUrl)
 });
 

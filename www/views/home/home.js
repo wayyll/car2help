@@ -19,6 +19,58 @@ angular.module("myapp")
             $ionicViewSwitcher.nextDirection("forward");    // "forward","back"
 
         };
+		//批发商产品推荐
+		$scope.changepifa=function(){
+			$http.get($rootScope.localhost+"index.php?m=saler&c=api&a=saler_list&limit=2").success(function(data){
+			$scope.pifashang={}
+			$scope.pifashang=data.data
+			console.log(data)
+			
+		})
+		}
+		$scope.topifashang=function(i){
+			if ($rootScope.isLogin == false) {
+                $scope.openModal()
+            } else {
+   	$http.post($rootScope.localhost+"index.php?m=saler&c=api&a=saler_goods",{saler_id:i.id}).success(function(data){
+		if(data.error==3){
+			 $scope.showConfirm()
+		}
+		if(data.error==0){
+			$state.go("tabs.pifashang",{id:i.id})
+		}
+	})
+            }
+		
+			
+			$scope.showConfirm = function() {
+     var confirmPopup = $ionicPopup.confirm({
+      cancelText: '取消',
+	  okText: '申请',
+	   okType: 'button-balanced',
+       title: '您还没有权限是否立即申请?'
+     });
+     confirmPopup.then(function(res) {
+       if(res) {
+		  
+        $http.get($rootScope.localhost+"index.php?m=saler&c=api&a=member_apply&saler_id="+i.id).success(function(data){
+        	$scope.da=data.data
+				 $cordovaToast.showShortTop("申请权限中").then(function(success) {
+								    // success
+								  }, function (error) {
+								    // error
+ 								 });
+			})
+       } else {
+         console.log('You are not sure');
+       }
+     });
+   };
+			
+			
+			//
+		}
+		$scope.changepifa()
         //首页店铺推荐
 
         $scope.homeStore=[];
@@ -58,5 +110,12 @@ angular.module("myapp")
 			$scope.data=data.data
 			$ionicSlideBoxDelegate.update()
 		})
-});
+})
+.controller("pifashangCtrl",function($rootScope,$scope,$http,$ionicSlideBoxDelegate,$ionicModal,$state, $ionicViewSwitcher,$ionicPopup,$scope, $ionicSlideBoxDelegate,$stateParams){
+	$stateParams.id
+		$http.post($rootScope.localhost+"index.php?m=saler&c=api&a=saler_goods",{saler_id:$stateParams.id}).success(function(data){
+			$scope.data=data
+			console.log($scope.data)
+		})
 	
+})

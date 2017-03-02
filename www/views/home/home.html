@@ -36,11 +36,9 @@
                 <ion-slide ng-repeat="i in data">
                     <img ng-src="{{i.img}}" ">
                 </ion-slide>
-               
-                
             </ion-slide-box>
         </div>
-        <div class="row text-center bgcolorw clearfix" ng-style="get_height2" >
+        <div class="row text-center bgcolorw clearfix"  >
             <div class="col col-25">
                 <a ng-click="homeLogin()"><img class="imgsize" src="images/home/jy.png"></a>
                 <p class="font12px">救援</p>
@@ -59,6 +57,7 @@
             </div>
         </div>
           <div style="width: 100%;background: #dbdbdb;height: 5px;margin-top:-10px;"/></div>
+		  
         <div class="carlist " style="margin-top:15px">
             <div class="row "style="margin-top:1px">
                 <div class="col col-80"><img src="images/home/titleimg.png" alt="" style="width: 1rem;"/> <span style="text-align: left;position: relative;top:-3px">新品推荐</span></div>
@@ -102,6 +101,27 @@
                    
               
             </div>
+			<div class="carlist " style="margin-top:15px">
+            <div class="row "style="margin-top:1px">
+                <div class="col col-80"><img src="images/home/titleimg.png" alt="" style="width: 1rem;"/> <span style="text-align: left;position: relative;top:-3px">批发商</span></div>
+                <div class="col col-20" style="text-align: center">
+                    <a style="display:inline-block;text-decoration:none ; color: #0a0a0a;position: relative;top:-3px" ng-click="changepifa()" >
+                       换一批<i class="ion-android-refresh"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="item" style="border:none">
+                
+                    <ul class="ul row">
+                        <li class="chatimg col col-50" ng-repeat="item in pifashang" ng-click="topifashang(item)">
+                            <img  ng-src="{{item.logo}}" style="height: 100px ;width:100%" />
+							<br>
+                            <span style="font-size:1.4rem;color:#000;width:100%;display:inline-block;text-align:center;height:1.6rem">{{item.salerName}}</span>
+                        </li>
+                    </ul>
+              
+            </div>
+        </div>
         </div>
     </ion-content>
 </ion-view>

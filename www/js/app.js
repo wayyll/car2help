@@ -1,13 +1,13 @@
 var myapp=angular.module("myapp",["ionic","mycart","baiduMap","ngSanitize","ngCordova"]);
     myapp.controller("myCtrl",function($rootScope,$http,$scope,$state){
-if(typeof cordova.plugins.settings.openSetting != undefined){
-    cordova.plugins.settings.openSetting("location_source", function(){
-           alert("opened nfc settings")
-        },
-        function(){
-            console.log("failed to open nfc settings")
-        });
-}
+//if(typeof cordova.plugins.settings.openSetting != undefined){
+//  cordova.plugins.settings.openSetting("location_source", function(){
+//         alert("opened nfc settings")
+//      },
+//      function(){
+//          console.log("failed to open nfc settings")
+//      });
+//}
 
    
 $rootScope.personavatar=localStorage.getItem("useravatar")
@@ -379,6 +379,15 @@ myapp.config(function($stateProvider,$urlRouterProvider,$ionicConfigProvider){
             controller:"jiuyuanfuwuCtrl"
         }}
     });
+    	$stateProvider.state("tabs.pifashang", {
+		url: "/pifashang?id",
+		views: {
+			"tabs-home": {
+				templateUrl: "views/cartdetail/pifashang.html"
+			
+			}
+		}
+	});
     
     if(localStorage.getItem("one")===null){
 		
