@@ -1,7 +1,7 @@
 var myapp=angular.module("myapp",["ionic","mycart","baiduMap","ngSanitize","ngCordova"]);
     myapp.controller("myCtrl",function($rootScope,$http,$scope,$state){
 	if(typeof cordova.plugins.settings.openSetting != undefined){
-    cordova.plugins.settings.open(function(){
+    	cordova.plugins.settings.open(function(){
             alert("ok")
         },
         function(){
