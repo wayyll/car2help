@@ -1,0 +1,79 @@
+<ion-view ng-controller="locationCtrl">
+    <ion-nav-buttons side="right">
+        <a ui-sref="tabs.Lmessage" ng-show="isLogin">
+            <div class="tab-item has-badge">
+                <i class="icon ion-android-mail" style="color:#313131;padding-right: 0.5rem"></i>
+                <i class="badge num"style="background: red;">{{messageNum}}</i>
+            </div>
+        </a>
+        <a ui-sref="tabs.Lmessage" ng-hide="isLogin">
+            <div class="tab-item has-badge">
+                <i class="icon ion-android-mail" style="color:#313131;padding-right: 0.5rem"></i>
+                <i class="badge num"style="background: red;"></i>
+            </div>
+        </a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left">
+        <a menu-toggle="left" style="font-size:30px;padding-left:10px"><i class="ion-android-menu"></i></a>
+    </ion-nav-buttons>
+    <ion-nav-title >
+        个人中心
+    </ion-nav-title>
+    <ion-content >
+	
+        <div ng-hide="isLogin" ng-click="dadada()">
+            <div class="row" style="background: url(images/userbg.jpg)no-repeat bottom 0;background-size: 100%;margin-top:10px;padding-bottom: 20px;" >
+                <div class="col col-33 col-offset-33">
+                    <img src="http://www.b1ss.com/app/admin/./template/default/statics/images/member/default_head.png"   style="border-radius: 50%;"/>
+					
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p style="text-align: center;">未登录</p>
+                </div>
+            </div>
+        </div>
+        <div ng-show="isLogin">
+            <div class="row" style="background: url(images/userbg.jpg)no-repeat bottom 0;background-size: 100%;margin-top:10px;padding-bottom: 20px;" >
+                <div class="col col-33 col-offset-33">
+                    <img  ng-src="{{personavatar}}" style="border-radius: 100%;width:100px;height:100px;margin:0 auto" id="dd" ng-click="upload()"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p style="text-align: center;">{{personusername}}</p>
+                </div>
+            </div>
+			
+			<input  type="file" id="fileid"uploader="uploader" nv-file-select ng-model="updateimg"name="img" onchange="angular.element(this).scope().updata(this.files)" style="display:none"/>
+        <canvas id="output" width="500" height="500" autoplay style="display:none" ></canvas>
+		</div>
+		
+      <div class="row">
+      		<div class="col">
+                <a class="item item-icon-left item-icon-right" ng-click="jiuyuandingdan()">
+                    <i class="icon ion-document"></i>
+                  救援记录
+                    <i class="icon ion-ios-arrow-right"></i>
+                  </a>
+                  <a class="item item-icon-left item-icon-right" ng-click="myDingDan()">
+                    <i class="icon ion-ios-pricetag-outline"></i>
+                    我的订单
+                    <i class="icon ion-ios-arrow-right"></i>
+                  </a>
+                 <a class="item item-icon-left item-icon-right" ui-sref="tabs.shopmanage">
+                    <i class="icon ion-ios-pricetag-outline"></i>
+                   店铺管理
+                    <i class="icon ion-ios-arrow-right"></i>
+                  </a>
+                  <a class="item item-icon-left item-icon-right" href="#">
+                    <i class="icon ion-android-share-alt"></i>
+                    分享
+                    <i class="icon ion-ios-arrow-right"></i>
+                  </a>
+      			<!--<divdd>-->
+      		</div>
+      	</div>
+    </ion-content>
+</ion-view>

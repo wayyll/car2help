@@ -1,0 +1,35 @@
+<ion-view   ng-controller="chatCtrl">
+    <ion-nav-buttons side="left">
+        <a menu-toggle="left" style="font-size:30px;padding-left:10px"><i class="ion-android-menu" style="color: #fff;"></i></a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a ui-sref="tabs.Cmessage" ng-show="isLogin">
+            <div class="tab-item has-badge">
+                <i class="icon ion-android-mail" style="color:#313131;padding-right: 0.5rem"></i>
+                <i class="badge num" style="background: red;">{{messageNum}}</i>
+            </div>
+        </a>
+        <a ui-sref="tabs.Cmessage" ng-hide="isLogin">
+            <div class="tab-item has-badge">
+                <i class="icon ion-android-mail" style="color:#313131;padding-right: 0.5rem"></i>
+                <i class="badge num"style="background: red;"></i>
+            </div>
+        </a>
+    </ion-nav-buttons>
+    <ion-nav-title >
+	附近
+       
+
+    </ion-nav-title>
+    <ion-content style="background:#e5e5e5" >
+	
+       <!-- <div id="allmap"  style="width: 100%;" ng-style="get_height"></div> -->
+       <button style="border:none;background:none;display:block;width:5rem;height:5rem;color:red;position:absolute;bottom:4rem;left:2rem;z-index:999" ng-click="dingwei()"><img src="images/dingwei.png"></button>
+	   
+	 <baidu-map options="options" style="width:100%;display: block;"ng-style="get_height">
+	 
+	 </baidu-map>
+	 
+      
+    </ion-content>
+</ion-view>

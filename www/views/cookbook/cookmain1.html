@@ -1,0 +1,78 @@
+<ion-view  style="font-family:  'Microsoft YaHei'" ng-controller="cookmainCtrl ">
+    <ion-nav-title >
+	 <div class="item item-input" ng-controller="serchCtrl" style="width:75%;height: 35px;margin:4px auto;border-radius: 5px;">
+                <input type="text"class="headerInput "ng-model="cooksearch" placeholder="搜索店铺">
+                <a ng-click="searchcookmain(cooksearch)">
+                    <i class="icon ion-search placeholder-icon"style="color:#3cb936 !important"></i>
+                </a>
+     </div>
+    </ion-nav-title>
+    <div class=" row" style="position:fixed;top:40px;left:0px;z-index:999">
+        <div class="col col-30">
+            <select ng-model="selectedProvince" ng-options="item.name for item in area" style="width:100%;border:none">
+                <option value="">-省份-</option>
+            </select>
+        </div>
+        <div class="col col-30" >
+            <select ng-model="city" ng-options="city.name for city in selectedProvince.lv2" style="width:100%;border:none">
+                <option value="">-城市-</option>
+            </select>
+        </div>
+        <div class="col col-30">
+            <select ng-model="qu"  ng-options="qu.name for qu in city.lv3" style="width:100%;border:none">
+                <option value="">-区县-</option>
+            </select>
+        </div>
+    </div>
+   
+    <ion-content style="margin-top:30px">
+	
+			<div class="card" ng-show="cookserch">
+			  <div class="item item-text-wrap" align="center">
+			   没有该店铺
+			  </div>
+			</div>
+        <!--<ion-refresher pulling-text="换一批" pulling-icon="ion-wrench" spinner="ripple" on-refresh="refresh()"></ion-refresher>-->
+        <div class="list" ng-repeat="item in data" id="liansuodian" style="margin-top:5px;padding:2px" >
+           <li class="item" >
+               <div class="item item-thumbnail-left" ng-click="goshop(item)">
+                   <img ng-src="{{localhost}}{{item.avatar}}">
+                   <div class="row">
+                       <h3 class="col col-70">{{item.shopName}}</h3>
+                       <span style="font-size:0.8rem ;margin-right:3%" class="col col-25">距您{{item.distance}}km</span>
+                   </div>
+
+                   <div class="row">
+                       <h3 class="col col-50">营业情况:<i class="{{item.yingye}}"></i></h3>
+                       <h3 class="col col-50">充电桩:<i class="{{item.chongdian}}"></i></h3>
+                   </div>
+                   <div class="row">
+                       <h3 class="col col-50">电瓶车:<i class="{{item.electrombile}}"></i></h3>
+                       <h3 class="col col-50">摩托车:<i class="{{item.motor}}"></i></h3>
+                   </div>
+                   <div class="row">
+                       <div class="col col-20"><i class="ion-ios-home-outline" style="font-size:20px;"></i>:</div>
+                       <p class="col col-80">{{item.address}}</p>
+                      
+                   </div>
+                   <div class="row">
+                       <div class="col col-20"><i class="ion-ios-telephone-outline" style="font-size:20px">:</i></div>
+                      	<div class="col col-80"><a ng-href="tel:{{item.phone}}"style="color:#000">{{item.mobile}}</a></div>
+                   </div>
+                   <div class="row">
+                   	<div class="col"><p style="color: #000;">{{item.comment}}条评价</p></div>
+                   </div>
+					
+              </div>
+			  <div class="row">
+               <button class="col col-50 button button-stable"  ng-click="jiuYuanFirst(item)">
+                   <i class="ion-wrench"></i> 点击救援</button>
+             <a class="col col-50 button button-stable" ng-click="openmap(item)">
+                   <i class="ion-android-navigate"></i> 导航到店</a>
+				   </div>
+           </li>
+        </div>
+        <!--<ion-infinite-scroll on-infinite="loadMore()" distance="1%" spinner="spiral">-->
+        <!--</ion-infinite-scroll>-->
+    </ion-content>
+</ion-view>

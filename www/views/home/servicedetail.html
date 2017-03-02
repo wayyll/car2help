@@ -1,0 +1,11 @@
+﻿<ion-view ng-controller="service" title="详情介绍">
+
+    <ion-content style="text-align:center;font-size:20px">
+       <img ng-src="{{servicedata.img}}">
+	   <br />
+	   <p>{{servicedata.name}}</p>
+	   <p>介绍：{{servicedata.content}}</p>
+	    <p>地址：{{servicedata.address}}</p>
+		<p>联系电话：<a ng-href="tel:{{servicedata.phone}}" style="color:#000">{{servicedata.phone}}</a></p>
+    </ion-content>
+</ion-view>

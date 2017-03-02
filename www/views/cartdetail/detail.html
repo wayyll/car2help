@@ -1,0 +1,14 @@
+<ion-view title="图文详情" ng-controller="detailCtrl">
+<ion-content>
+<div class="row list">
+<div class="col">
+<img ng-src="{{item.img}}">
+</div>
+</div>
+<div style="text-align:center">
+<p>{{item.content }}</p>
+<p>{{item.market_price | currency:"市场价："}}</p>
+</div>
+
+</ion-content>
+</ion-view>

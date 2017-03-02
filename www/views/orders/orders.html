@@ -1,0 +1,63 @@
+<ion-view title="我的订单" >
+	<ion-nav-buttons side="right">
+		<i class="icon ion-ios-bell chaticon" style="color:#313131"></i>
+	</ion-nav-buttons>
+	<div class="list has-header row" style="margin:0 ; padding:0 ;">
+		<span  ng-class="addClass(0)"><a  class="taba" ng-click="activeSlide(0)">未付款</a> </span>
+		<span  ng-class="addClass(1)"><a  class="taba" ng-click="activeSlide(1)">已付款</a> </span>
+	</div>
+	<ion-content style="margin-top: 35px">
+
+		<ion-slide-box auto-play="false"  on-slide-changed="slideChanged(index)"
+		active-slide="slideIndex" show-pager="false" delegate-handle="bottom">
+			<ion-slide>
+				<div class="list" ng-repeat="pay in noPay" style="rem:1.4">
+					<div style="height: 3px ; background: #c9ff89"></div>
+					<div class="item item-text-wrap">
+						<h4 style="margin-left:1%">订单号:{{pay.sn}}</h4>
+						<div class="list" ng-repeat="one in pay._subs._skus">
+							<div class="item item-avatar" >
+								<img src="{{one.sku_thumb}}">
+								<h2>{{one.sku_name}}</h2>
+								<div class="row" style="font-size:1.4rem">
+									<p class="col col-33">单价:{{one.sku_price}}</p>
+									<p class="col col-33">数量:{{one.buy_nums}}</p>
+									<p class="col col-33">小计:{{one.sku_price * one.buy_nums}}</p>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<button  class="col col-30 button button-small button-positive" ng-click="toOrdersDetail(pay)" style="margin: 0 1%">查看订单</button>
+							<button  class="col col-30 button button-small button-balanced" style="margin: 0 1%">立即付款</button>
+							<button  class="col col-30 button button-small button-assertive" style="margin: 0 1%">删除订单</button>
+						</div>
+					</div>
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="list" ng-repeat="pay in yesPay" style="rem:1.5">
+					<div style="height: 3px ; background: #c9ff89"></div>
+					<div class="item item-text-wrap">
+						<h4 style="margin-left:10%">订单号:{{pay.sn}}</h4>
+						<div class="list" ng-repeat="one in pay._subs._skus">
+							<div class="item item-avatar" >
+								<img src="{{one.sku_thumb}}">
+								<h2>{{one.sku_name}}</h2>
+								<div class="row">
+									<p class="col col-33">单价:{{one.sku_price}}</p>
+									<p class="col col-33">数量:{{one.buy_nums}}</p>
+									<p class="col col-33">小计:{{one.sku_price * one.buy_nums}}</p>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<button  class="col col-45 button button-small button-positive" ng-click="toOrdersDetail(pay)" style="margin:0 2%">查看订单</button>
+							<button  class="col col-45 button button-small button-positive" style="margin:0 2%">删除订单</button>
+						</div>
+
+					</div>
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,40 @@
+<ion-view ng-controller="service" title="其他维修">
+		<!--<ion-nav-title >
+            <div class="item item-input item-input-index" ng-controller="serchCtrl" style="width:65%;margin:5px auto">
+                <input type="text"class="headerInput " placeholder="搜索关键字">
+                <a>
+                    <i class="icon ion-search placeholder-icon"style="color:#3cb936 !important"></i>
+                </a>
+            </div>
+        </ion-nav-title> -->
+
+    <div class=" row" style="position:fixed;top:40px;left:0px;z-index:999">
+        <div class="col col-30">
+            <select ng-model="selectedProvince" ng-options="item.name for item in area" style="width:100%;border:none">
+                <option value="">-省份-</option>
+            </select>
+        </div>
+        <div class="col col-30" >
+            <select ng-model="city" ng-options="city.name for city in selectedProvince.lv2" style="width:100%;border:none">
+                <option value="">-城市-</option>
+            </select>
+        </div>
+        <div class="col col-30">
+            <select ng-model="qu"  ng-options="qu.name for qu in city.lv3" style="width:100%;border:none">
+                <option value="">-区县-</option>
+            </select>
+        </div>
+    </div>
+    <ion-content style="margin-top: 40px">
+        <div class="list">
+            <a class="item item-thumbnail-left item-icon-right" ng-click="gootherdetail(i)" ng-repeat="i in other">
+                <img ng-src="{{i.img}}">
+                <h2>{{i.name}}</h2>
+                <p>地址：{{i.address}}</p>
+                <p>电话：{{i.phone}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+          
+        </div>
+    </ion-content>
+</ion-view>

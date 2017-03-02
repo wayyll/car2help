@@ -1,0 +1,44 @@
+<ion-view title="放心可靠" ng-controller="storeListCtrl">
+    <ion-nav-buttons side="right" >
+        <a ui-sref="tabs.checkout">
+        <div class="tab-item has-badge" ng-controller="numCtrl">
+            <i class="icon ion-ios-cart carticon" style="color:#313131"></i>
+            <i class="badge num"style="background: red;">{{totalnum()}}</i>
+        </div>
+        </a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left" >
+        <a>
+            <div class="tab-item has-badge" style="font-size: 35px">
+              
+            </div>
+        </a>
+    </ion-nav-buttons>
+    <ion-content  style="background:#F2F2F2">
+        <div class="row text-center bgcolorw bgcolorw2" >
+            <div class="col col-25" ng-click="selectCategory(null)">
+                <p class="font12px"  ng-class="acitveClass(null)">所有商品</p>
+            </div>
+            <div class="col col-25" ng-repeat="item in data.categories" ng-click="selectCategory(item.category)">
+                <p class="font12px"  ng-class="acitveClass(item.category)">{{item.category}}</p>
+            </div>
+        </div>
+        <div class="list">
+            <div class="item item-text-wrap" style="padding:0" ng-repeat="product in data.products|filter:showByCategory">
+                <div class="row">
+                    <div class="col col-25"><img ng-src="{{product.imgsrc}}" ng-click="toDetail(product)"></div>
+                    <div class="col col-50 " ng-click="toDetail(product)">
+                        <h3>{{product.name}}</h3>
+                        <p class="font12px">{{product.description}}</p>
+                        <h3>{{product.price|currency:"￥"}}</h3>
+                    </div>
+                    <div class="col col-30">
+                        <a class="button button-small" style="width:105%;margin-left:-10%;background:red;color:#fff" ng-click="addCart(product)">
+                            加入购物车
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

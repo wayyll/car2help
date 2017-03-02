@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+  <meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title></title>
+
+		<link rel="manifest" href="manifest.json">
+		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=fxEFrGvvGBTm0RIpxSN6Zmy88tmX5Pe5"></script>
+		<script src="lib/ionic/js/ionic.bundle.js"></script>
+		<script src="js/angular-sanitize.min.js"></script>
+		<script src="js/baiduMap.min.js"></script>
+  	<script src="lib/ngCordova/ng-cordova.js"></script>
+		<script src="cordova.js"></script>
+		
+	  <!-- your app's js -->
+		<script src="js/app.js"></script>
+		<script src="views/home/home.js"></script>
+		<script src="views/chat/chat.js"></script>
+		<script src="views/location/location.js"></script>
+		<script src="views/cart/controller/store.js"></script>
+		<script src="views/cart/controller/storeList.js"></script>
+		<script src="views/cart/controller/mycarts.js"></script>
+		<script src="views/cart/controller/checkoutSum.js"></script>
+		<script src="views/cart/controller/complete.js"></script>
+		<script src="views/cart/controller/pay.js"></script>
+		<script src="views/tour/tour.js"></script>
+		<script src="views/activity/activitysub.js"></script>
+		<script src="views/activity/activity.js"></script>
+		<script src="views/shop/shop.js"></script>
+		<script src="views/shop/shopdetail.js"></script>
+		<script src="views/cookbook/cookbook.js"></script>
+		<script src="views/cookbook/cookmain.js"></script>
+		<script src="views/cookbook/position.js"></script>
+		<script src="views/cartdetail/cartdetail.js"></script>
+		<script src="views/home/sidemeu.js"></script>
+		<script src="views/serch/serch.js"></script>
+		<script src="views/serch/serchdetail.js"></script>
+		<script src="views/product/product.js" type="text/javascript" charset="utf-8"></script>
+		<script src="views/product/proshop.js" type="text/javascript" charset="utf-8"></script>
+		<script src="views/home/service.js"></script>
+		<script src="views/cartdetail/assess.js"></script>
+		<script src="views/cartdetail/detail.js"></script>
+		<script src="views/orders/orders.js"></script>
+		<script src="views/orders/ordersdetail.js"></script>
+		<script src="views/cartdetail/chatroom.js"></script>
+		<script src="views/cookbook/jiuyuanfuwu.js"></script>
+    
+ </head>   
+<body ng-controller="myCtrl">
+
+
+<ion-side-menus ng-controller="sidemeuCtrl">
+    <!--主内容区-->
+    <ion-side-menu-content drag-content="false">
+        <ion-nav-bar >
+            <ion-nav-back-button class="button button-icon ion-ios-arrow-back" style="color:#fff">
+            </ion-nav-back-button>
+        </ion-nav-bar>
+        <ion-nav-view></ion-nav-view>
+    </ion-side-menu-content>
+
+    <!--侧边栏区域 - left -->
+    <ion-side-menu side="left">
+        <!--标题栏-->
+        <!--<ion-header-bar style="background: #fff !important;">
+           <!-- <h1 class="title" style="color:#fff">全部分类</h1>
+     </ion-header-bar>-->
+        <!--内容区-->
+        <ion-content>
+            <div class="list" style="margin-top:-10px ;">
+                <div class="item item-thumbnail-left" href="#" ng-hide="isLogin">
+                    <img ng-src="http://www.b1ss.com/app/admin/./template/default/statics/images/member/default_head.png" style="border-radius: 50%">
+                    <h2  style="margin-top: 20px">未登录</h2>
+                    <p>一路通欢迎您</p>
+                </div>
+                <div class="item item-thumbnail-left" href="#" ng-show="isLogin">
+                    <img  ng-src="{{personavatar}}" style="border-radius: 50%">
+                    <h2   style="margin-top: 20px">{{personusername}}</h2>
+                    <p>一路通欢迎您</p>
+                </div>
+				<div ng-hide="isLogin" >
+                <a  class="item item-icon-left" ng-click="openModal()">
+                    <i class="icon ion-android-contact sidemenufont"></i><span class="sidemenufont">个人 登录/注册</span>
+                </a>
+                <!--<a  class="item item-icon-left" ng-click="openModal3()">
+                    <i class="icon ion-android-contact sidemenufont"></i><span class="sidemenufont">商家 登录/入驻</span>
+                </a>-->
+				</div>
+                <a  class="item item-icon-left" ng-click="openModal6()">
+                    <i class="icon ion-unlocked sidemenufont"></i><span class="sidemenufont">修改密码</span>
+                </a>
+                <a class="item item-icon-left" ng-click="openModal1()" menu-close>
+                    <i class="icon ion-gear-a sidemenufont"></i> <span class="sidemenufont">设置</span>
+                </a>
+                <a class="item item-icon-left" ng-click="openModal2()" menu-close>
+                    <i class="icon ion-compose sidemenufont"></i> <span class="sidemenufont">意见反馈</span>
+                </a>
+                <a class="item item-icon-left" ng-click="showConfirm()" menu-close ng-show="isLogin">
+                    <i class="icon ion-android-exit sidemenufont"></i><span class="sidemenufont">退出登录</span>
+                </a>
+            </div>
+        </ion-content>
+    </ion-side-menu>
+
+
+</body>
+</html>

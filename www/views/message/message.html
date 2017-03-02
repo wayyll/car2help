@@ -1,0 +1,14 @@
+<ion-view title="消息中心">
+	<ion-content>
+        <div class="card"  ng-hide="isMessage">
+            <div class="item item-text-wrap">
+                没有信息
+            </div>
+        </div>
+        <div class="card" ng-show="isMessage">
+            <div class="item item-text-wrap" ng-repeat="item in message"  >
+                <p  ng-show="isMessage">{{item.message}}</p>
+            </div>
+        </div>
+	</ion-content>
+</ion-view>

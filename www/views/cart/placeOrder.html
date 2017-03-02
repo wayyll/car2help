@@ -1,0 +1,132 @@
+
+<ion-view title="确认订单"  >
+    <ion-content ng-controller="completeCtrl" >
+	
+			<div class="row item" style="border-top: 1px solid #dbdbdb;border-bottom: 1px solid #dbdbdb;padding: 0;">
+                        			<div class="col col"  >
+                        				
+                        						<div class="item-content" style="text-align:center">
+                        							收货地址
+                        						</div>
+                        					
+                        				
+                        			</div>
+                        	<!--		<div class="col col-50" style="border-left: 1px solid #dbdbdb;">
+                        				<label class="item item-radio" style="border: none;">
+                        					<input type="radio" name="222" ng-model="address" ng-value="0">
+                        					<div class="radio-content">
+                        						<div class="item-content">
+                        							选择地址
+													
+                        						</div>
+                        						<i class="radio-icon ion-android-done" style="color: #3db937;"></i>
+                        					</div>
+                        				</label>
+                        			</div> -->
+						</div>
+					
+        <form name="shippingForm" >
+			
+			<a ng-hide="orderdata.address==null" ng-click="gochangeaddress()" style="color:#000" style="position:relative">
+			<div class="list row" >
+			<span class="col col-50">收货人:{{item.name}}</span>
+			<span  class="col col-50">地址：{{item.address}}</span>
+			</div>
+			<div class="list row">
+			<span  class="col col-50">手机号：{{item.mobile}}</span>
+			<span  class="col col-50">邮编：{{item.zipcode}}</span>
+			</div>
+			<i class="ion-ios-arrow-right" style="position:absolute;top:14%;right:3%;font-size:2rem"></i>
+			</a>
+			<div class="card"  ng-click="addaddress=true" ng-hide="addaddress" >
+		
+            <div class="item item-text-wrap"   >
+                添加新地址
+				<i class="ion-plus-round" style="color:#3db937"></i>
+            </div>
+			
+			</div>
+			
+        
+            <div class="list card" ng-show="addaddress">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label colororange">收货人姓名</span>
+                    <input type="text"  placeholder="收货人姓名" ng-model="name"  />
+                </label>
+				<span class="input-label colororange" style="margin-left:1rem">收货地址</span>
+				<div class="row">
+				<div class="  col col-30">
+				<select ng-model="selectedProvince"ng-options="item.name for item in area" style="width:100%;border:none;background:none">
+                <option value="">-省份-</option>
+				</select>
+        </div>
+        <div class="  col col-30" >
+            <select ng-model="city" ng-options="city.name for city in selectedProvince.lv2"style="width:100%;border:none;background:none">
+                <option value="">-城市-</option>
+            </select>
+        </div>
+        <div class=" col col-30">
+            <select ng-model="qu"  style="width:100%;border:none;background:none">
+                <option value="">-区县-</option>
+				<option  value="{{qu.id}}" ng-repeat="qu in city.lv3">{{qu.name}}</option>
+            </select>
+        </div>
+		  </div>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label colororange">详细地址</span>
+                   
+                    <input type="text"  placeholder="xx街道xx地址" ng-model="addresstext" />
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label colororange">联系电话（重要）</span>
+                   
+                    <input type="text"  placeholder="139xxxxxxxx" ng-model="mobile" />
+                </label>
+				<label class="item item-input item-stacked-label">
+                    <span class="input-label colororange">邮政编码</span>
+                   
+                    <input type="text"  placeholder="邮政编码" ng-model="zipcode" />
+                </label>
+				<button class="button  button-block" ng-click="adddizhi(qu)">保存并使用地址</button>
+            </div> 
+			<div class="list">
+			<div class="row" style="border-top: 1px solid #dbdbdb;border-bottom: 1px solid #dbdbdb;padding: 0;">
+                        			<div class="col col-50"  >
+                        				<label class="item item-radio" style="border: none;">
+                        					<input type="radio" name="111"ng-model="num"ng-checked="true" ng-init="num= 1"  checked="true" ng-value="1">
+                        					<div class="radio-content">
+                        						<div class="item-content">
+                        							在线支付
+                        						</div>
+                        						<i class="radio-icon ion-android-done"style="color: #3db937;"></i>
+                        					</div>
+                        				</label>
+                        			</div>
+                        			<div class="col col-50" style="border-left: 1px solid #dbdbdb;">
+                        				<label class="item item-radio" style="border: none;">
+                        					<input type="radio" name="111"ng-model="num" ng-value="2">
+                        					<div class="radio-content">
+                        						<div class="item-content">
+                        							货到付款
+													
+                        						</div>
+                        						<i class="radio-icon ion-android-done" style="color: #3db937;"></i>
+                        					</div>
+                        				</label>
+                        			</div>
+						</div>
+					</div>
+					<div class="row list">
+					<div class="col col-50 "> 商品数量: <span style="color:red">{{orderdata.carts.sku_numbers}}</span></div>
+					<div class="col col-50 ">共计: <span style="color:red">{{orderdata.carts.all_prices}}</span> </div> </div>
+					
+            <div class="list">
+                <div class="item" style="border:none;">
+                    <button class=" button button-block button-positive" ng-click="addorder(item)" >
+                        确认订单
+                    </button>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

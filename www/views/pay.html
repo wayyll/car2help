@@ -1,0 +1,40 @@
+<ion-view title="订单详情">
+
+<ion-nav-buttons side="right" >
+        <a ui-sref="tabs.checkout">
+        取消
+        </a>
+    </ion-nav-buttons>
+
+<ion-content ng-controller="payCtrl">
+	<div class="list">
+        <div class="item item-divider"><b>请选择支付方式</b></div>
+								<label class="item item-radio" style="border: none;">
+                        					<input type="radio" name="333" ng-model="pay"ng-checked="true"ng-init="pay=0"  checked="true" ng-value="0">
+                        					<div class="radio-content">
+                        					<div class="item-content"><img style="width:20px;padding-right: 3px" src="images/pay/timg_06.jpg">支付宝客户端支付</div>
+                        						<i class="radio-icon ion-android-done"style="color: #3db937;"></i>
+                        					</div>
+                        				</label>
+                        			<label class="item item-radio" style="border: none;">
+                        					<input type="radio" name="333" ng-model="pay" ng-value="1">
+                        					<div class="radio-content">
+                        						<div class="item-content"><img style="width:20px ;padding-right: 3px;" src="images/pay/timg_03.jpg">微信支付</div>
+                        						<i class="radio-icon ion-android-done" style="color: #3db937;"></i>
+                        					</div>
+                        				</label>
+									<label class="item item-radio" style="border: none;">
+                        					<input type="radio" name="333" ng-model="pay" ng-value="2">
+                        					<div class="radio-content">
+                        						<div class="item-content"> 一键支付（无需支付宝账户）</div>
+                        						<i class="radio-icon ion-android-done" style="color: #3db937;"></i>
+                        					</div>
+                        				</label>
+                        		
+      
+    </div>
+
+    <button class="button button-full" style="background:red;color:#fff" ng-click="allpays()">确认付款</button>
+</div>
+</ion-content>
+</ion-view>

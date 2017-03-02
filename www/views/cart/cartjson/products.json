@@ -1,0 +1,205 @@
+[{
+"shopstoreid":"1",
+"shopstorename":"艾玛电动车专修店",
+"shopstoreimg":"images/home/u=444058623,2446044547&fm=23&gp=0.jpg",
+"product":[
+  {
+    "id":123,
+    "name": "尼玛电瓶车1",
+    "description": "黑白组合4盒",
+    "category": "零配件",
+    "price": 2000.0,
+    "imgsrc": "images/chat/zds.jpg"
+  },
+  {
+    "id":124,
+    "name": "尼玛电瓶车2",
+    "description": "黑白组合4盒",
+    "category": "摩托车",
+    "price": 2000.0,
+    "imgsrc":"images/chat/zds.jpg"
+  },
+  {
+    "id":125,
+    "name": "尼玛电瓶车3",
+    "description": "黑白组合4盒",
+    "category": "电动自行车",
+    "price": 13.8,
+    "imgsrc": "images/chat/zds.jpg"
+  },
+  {
+    "id":126,
+    "name": "尼玛电瓶车4",
+    "description": "黑白组合4盒",
+    "category": "烘焙美厨",
+    "price": 13.8,
+    "imgsrc": "images/chat/zds.jpg"
+  },
+  {
+    "id":127,
+    "name": "200w电瓶",
+    "description": "3斤包邮",
+    "category": "休闲食品",
+    "price": 9.9,
+    "imgsrc": "images/cart/cart_xxsp_1.jpg"
+  },
+  {
+    "id":128,
+    "name": "尼玛电瓶车5",
+    "description": "黑白组合4盒",
+    "category": "烘焙美厨",
+    "price": 13.8,
+    "imgsrc": "images/chat/zds.jpg"
+  },
+  {
+    "id":129,
+    "name": "尼玛电瓶车6",
+    "description": "250克/袋",
+    "category": "休闲食品",
+    "price": 59,
+    "imgsrc": "images/cart/cart_xxsp_3.jpg"
+  },
+  {
+    "id":130,
+    "name": "尼玛电瓶车",
+    "description": "黑白组合4盒",
+    "category": "烘焙美厨",
+    "price": 13.8,
+    "imgsrc": "images/chat/zds.jpg"
+  },
+  {
+    "id":131,
+    "name": "尼玛电瓶车7",
+    "description": "黑白组合4盒",
+    "category": "烘焙美厨",
+    "price": 13.8,
+    "imgsrc": "images/chat/zds.jpg"
+  },
+  {
+    "id":132,
+    "name": "尼玛电瓶车",
+    "description": "黑白组合4盒",
+    "category": "烘焙美厨",
+    "price": 13.8,
+    "imgsrc": "images/chat/zds.jpg"
+  },
+  {
+    "id":133,
+    "name": "越南进口巴沙鱼柳",
+    "description": "鲜动生活2.2kg",
+    "category": "精选生鲜",
+    "price": 99,
+    "imgsrc": "images/cart/cart_jxsx_3.jpg"
+  },
+  {
+    "id":134,
+    "name": "加拿大进口北极海参",
+    "description": "鲜动生活550克",
+    "category": "精选生鲜",
+    "price": 128,
+    "imgsrc": "images/cart/cart_jxsx_4.jpg"
+  }
+]},
+{
+"shopstoreid":"2",
+"shopstorename":"高新区大洋修车行",
+"shopstoreimg":"images/home/u=976051318,3231126583&fm=21&gp=0.jpg",
+"product":[
+  {
+    "id":135,
+    "name": "尼玛电瓶车1",
+    "description": "黑白组合4盒",
+    "category": "零配件",
+    "price": 2000.0,
+    "imgsrc": "images/chat/zds.jpg"
+  },
+  {
+    "id":136,
+    "name": "尼玛电瓶车2",
+    "description": "黑白组合4盒",
+    "category": "摩托车",
+    "price": 2000.0,
+    "imgsrc":"images/chat/zds.jpg"
+  },
+  {
+    "id":137,
+    "name": "尼玛电瓶车3",
+    "description": "黑白组合4盒",
+    "category": "电动自行车",
+    "price": 13.8,
+    "imgsrc": "images/chat/zds.jpg"
+  },
+  {
+    "id":138,
+    "name": "尼玛电瓶车4",
+    "description": "黑白组合4盒",
+    "category": "烘焙美厨",
+    "price": 13.8,
+    "imgsrc": "images/chat/zds.jpg"
+  },
+  {
+    "id":139,
+    "name": "200w电瓶",
+    "description": "3斤包邮",
+    "category": "休闲食品",
+    "price": 9.9,
+    "imgsrc": "images/cart/cart_xxsp_1.jpg"
+  },
+  {
+    "id":140,
+    "name": "尼玛电瓶车5",
+    "description": "黑白组合4盒",
+    "category": "烘焙美厨",
+    "price": 13.8,
+    "imgsrc": "images/chat/zds.jpg"
+  },
+  {
+    "id":141,
+    "name": "尼玛电瓶车6",
+    "description": "250克/袋",
+    "category": "休闲食品",
+    "price": 59,
+    "imgsrc": "images/cart/cart_xxsp_3.jpg"
+  },
+  {
+    "id":142,
+    "name": "尼玛电瓶车",
+    "description": "黑白组合4盒",
+    "category": "烘焙美厨",
+    "price": 13.8,
+    "imgsrc": "images/chat/zds.jpg"
+  },
+  {
+    "id":143,
+    "name": "尼玛电瓶车7",
+    "description": "黑白组合4盒",
+    "category": "烘焙美厨",
+    "price": 13.8,
+    "imgsrc": "images/chat/zds.jpg"
+  },
+  {
+    "id":144,
+    "name": "尼玛电瓶车",
+    "description": "黑白组合4盒",
+    "category": "烘焙美厨",
+    "price": 13.8,
+    "imgsrc": "images/chat/zds.jpg"
+  },
+  {
+    "id":145,
+    "name": "越南进口巴沙鱼柳",
+    "description": "鲜动生活2.2kg",
+    "category": "精选生鲜",
+    "price": 99,
+    "imgsrc": "images/cart/cart_jxsx_3.jpg"
+  },
+  {
+    "id":146,
+    "name": "加拿大进口北极海参",
+    "description": "鲜动生活550克",
+    "category": "精选生鲜",
+    "price": 128,
+    "imgsrc": "images/cart/cart_jxsx_4.jpg"
+  }
+]}
+]

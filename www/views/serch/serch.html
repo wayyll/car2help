@@ -1,0 +1,30 @@
+<ion-view title="搜索结果" >
+	
+	<ion-content ng-controller="serchCtrl" >
+		
+		<div class="list" >
+			<div class="item item-text-wrap" style="padding:0" ng-repeat="i in data" >
+				<div class="row">
+					<div class="col col-25" ng-click="toDetailserch(i)">
+						<img style="height:50px" ng-src="{{i.img_list}}" ></div>
+					<div class="col col-50 "ng-click="toDetailserch(i)">
+						<h3>{{i.name}}</h3>
+						<p class="font12px">{{i.cat_name}}</p>
+						<h3 style="color: red;">{{i.shop_price|currency:"￥"}}</h3>
+					</div>
+					<div class="col col-30" ng-controller="cartdetailCtrl">
+						<a class="button button-small" style="width:110%;background:red;color:#fff;margin-left:-10%"ng-click="addCart(i)">
+							加入购物车
+						</a>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+			<div class="card" ng-show="productserch">
+			  <div class="item item-text-wrap" align="center">
+			   没有该商品
+			  </div>
+			</div>
+		</ion-content>
+</ion-view>

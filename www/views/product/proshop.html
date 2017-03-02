@@ -1,0 +1,40 @@
+<ion-view title="店铺详情" ng-controller="proshopCtrl">
+	 
+    <!--使用ionContent来正确地定位ionScroll-->
+    <ion-content>
+	<div class="row">
+		<div class="col">
+			<img src="{{store.shopstoreimg}}"/>
+		</div>
+	</div>
+   <div class="list">
+   	  <div class="row text-center "  >
+            <div class="col col-25" ng-click="selectCategory(null)">
+                <p class="font12px"  ng-class="acitveClass(null)">所有商品</p>
+            </div>
+            <div class="col col-25" ng-repeat="item in store.product" ng-click="selectCategory(item.category)">
+                <p class="font12px"  ng-class="acitveClass(item.category)">{{item.category}}</p>
+            </div>
+        </div>
+        <div class="row" ng-click="toDetail(product)" ng-repeat="product in store.product |filter:showByCategory">
+               
+                     
+                 <div class="col col-25">
+                 	<img ng-src="{{product.imgsrc}}" ng-click="toDetail(product)">
+                 </div>
+                    <div class="col col-50 " ng-click="toDetail(product)">
+                        <h3 style="font-size:12px">{{product.name}}</h3>
+                        <p class="font12px">{{product.description}}</p>
+                        <p style="font-size:12px;margin-top:-10px ;color: red;">{{product.price|currency:"￥"}}</p>
+                    </div>
+                    <div class="col col-30">
+                        <a class="button button-small" style="width:105%;margin-left:-10%;background:red;color:#fff" ng-click="addCart(product)">
+                            加入购物车
+                        </a>
+                    </div>
+                  
+                </div>
+        </div>
+  
+    </ion-content>
+</ion-view>

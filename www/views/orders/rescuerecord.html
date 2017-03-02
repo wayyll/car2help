@@ -1,0 +1,61 @@
+<ion-view title="救援记录" controller="locationCtrl">
+	
+	<ion-content>
+		<ul class="list " style="font-size:1.3rem;">
+    <li class="item" ng-repeat="i in jiuyuandata"  ng-click="godetail2()">
+    	
+     <div class="row" >
+     	<div class="col col-70">
+     		 <p style="">救援店铺:{{i.shopName}}</p>
+     	</div>
+		<div class="col col-30">
+     		<p style="">距离：{{i.detail.range}}公里</p>
+     	</div>
+     </div>
+	 <div class="row" >
+     	<div class="col">
+     		 <p>救援地址:{{i.detail.address}}</p>
+     	</div>
+		
+     </div>
+	 <div class="row" >
+     	<div class="col col-30">
+     		 <p>维修员:{{i.staff.staff}}</p>
+     	</div>
+		
+     	<div class="col col-70">
+     		 <a href="tel:{{i.staff.mobile}}" style="color:#000;font-size:1.3rem;">联系电话:{{i.staff.mobile}}</a>
+     	</div>
+		
+   
+		
+     </div>
+	 
+	 <div class="row" >
+     	<div class="col ">
+     		 <p>{{i.detail.expect_time| currency:"预计等待时间(分钟)"}}</p>
+     	</div>
+		
+     </div>
+	 
+	  <div class="row">
+	  <div class="col col-70" style="font-size:1.3rem;">
+    	  	下单时间：{{i.order_time}}
+    	  	</div>
+    	  </div>
+		  <div class="row">
+		  	<div class="col col-50" style="font-size:1.3rem;">维修产生的费用:{{i.repair_price|currency:"¥"}}</div>
+		<div class="col col-50" style="color:red;font-size:1.3rem;">总费用:{{i.total|currency:"¥"}}</div>
+		  </div>
+      <div class="row" style="font-size:1.3rem;">
+     	<div class="col col-50">支付方式：{{i.pay_type}}</div>
+		<div class="col col-50" style="color:red;font-size:1.3rem;">{{i.status}}</div>
+		
+    
+	 </div>
+    </li>
+     
+	</ul>
+	</ion-content>
+	
+</ion-view>

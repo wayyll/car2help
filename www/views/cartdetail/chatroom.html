@@ -1,0 +1,23 @@
+<ion-view title="聊天室" ng-controller="chatroomCtrl">
+    <ion-content style="background:#f2f2f2">
+        <div class="row" style="margin-top: 15px;position:relative" ng-repeat="item in words.slice().reverse()">
+            <div class="col col-20"  >
+                <img src="{{item.shopimg}}" style="height: 3rem; width:3rem;border-radius:50%;margin-left:15%">
+				<br >
+                <span style="text-align:center">{{item.member_name}}</span>
+            </div>
+            <div class="col col-80" style="border: 1px solid silver;border-radius: 15px ;border:none;padding:8px" ng-style="{{item.color}}"" >
+                <p>{{item.content}}</p>
+            </div>
+        </div>
+    </ion-content>
+    <div class="row" style="position:fixed;bottom: 49px;z-index:2 ;background: #f0f0f0;">
+	<div class="col-75">
+        <input id="chatword"  type="text" placeholder="WeChat " ng-model="chatWord" style="background: #fff;width:95%;margin-left:2%;border-radius:5px;padding-left:1%;">
+      </div>
+	  <button class="col col-25 button button-small button-balanced" ng-click="PostMessage()" style="margin-top:-1px">
+            发送
+        </button>
+    </div>
+
+</ion-view>

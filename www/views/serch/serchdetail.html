@@ -1,0 +1,56 @@
+<ion-view title="商品详情" ng-controller="serchdetailCtrl">
+
+    <ion-content style="background:#f2f2f2">
+
+     <div class="row">
+         <div class="col">
+             <div class="topbg pro_img">
+                 <ion-slide-box auto-play="true" does-continue="true" slide-interval="3000" >
+                     <ion-slide>
+                         <img src="images/cart/cart_pro_1.png" class="cartProImg" alt="">
+                     </ion-slide>
+                     <ion-slide>
+                         <img src="images/cart/cart_pro_1.png" class="cartProImg" alt="">
+                     </ion-slide>
+                     <ion-slide>
+                         <img src="images/cart/cart_pro_1.png" class="cartProImg" alt="">
+                     </ion-slide>
+
+                 </ion-slide-box>
+             </div>
+
+         </div>
+     </div>
+        <div class="row product" >
+            <div class="col">
+                <p>
+                    <span class="fontred">爱玛电动</span>
+
+                </p>
+
+                <p class="font-s">
+                    【全国包邮】正品保证支持7天无理由退换
+                </p>
+                <p>价格：¥<span class="delpirce">2000</span></p>
+                <p><span class="fontred">促销价：{{data.price}}</span></p>
+                {{data.id}}
+            </div>
+
+        </div>
+        <div class="row product">
+            <div class="col col-33">
+                <p>快递：40元</p>
+            </div>
+            <div class="col col-33">
+                <p>月销500笔</p>
+            </div>
+            <div class="col col-33">
+                <p>成都</p>
+            </div>
+        </div>
+    </ion-content>
+
+
+
+
+</ion-view>

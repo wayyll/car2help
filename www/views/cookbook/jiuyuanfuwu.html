@@ -1,0 +1,47 @@
+<ion-view ng-controller="jiuyuanfuwuCtrl">
+    <ion-header-bar class="bar bar-header bgorange">
+        <h1 class="title" style="color:#fff">救援计费</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list card list-inset">
+            <div class="item row item-icon-left">
+                <i class="ion-android-compass col col-10"></i>
+                <h4 class="col col-40">估计里程</h4>
+                <div class="col col-50">{{jiuyuandingdan.range}}</div>
+            </div>
+            <div class="item row item-icon-left">
+                <i class="ion-social-yen-outline col col-10"></i>
+                <h4 class="col col-40">公里单价</h4>
+                <div class="col col-50">{{jiuyuandingdan.level_price}}</div>
+            </div>
+            <div class="item row item-icon-left">
+                <i class="ion-calculator col col-10"></i>
+                <h4 class="col col-40">估计总计</h4>
+                <div class="col col-50">{{jiuyuandingdan.total}}</div>
+            </div>
+            <div class="item row item-icon-left">
+                <i class="ion-social-yen-outline col col-10"></i>
+                <h4 class="col col-40">起步价格</h4>
+                <div class="col col-50">{{jiuyuandingdan.start_price}}</div>
+            </div>
+            <div class="item row item-icon-left">
+                <i class="ion-clock col col-10"></i>
+                <h4 class="col col-40">预计时间</h4>
+                <div class="col col-50">{{jiuyuandingdan.time}}</div>
+            </div>
+            <div class="item row" style="padding: 3px 0">
+                <p class="col col-50" style="padding-left: 3%">救援师傅:</p>
+                <select  style="padding-right:3rem !important;max-width: 114%;" ng-modl="selectedStaff" class="col col-40">
+                    <option value="" selected="selected">请选择</option>
+                    <option ng-repeat="x in Staffs" value="{{x.id}}">{{x.username}}</option>
+                </select>
+            </div>
+        </div>
+
+        <button  class="button button-positive button-full has-header"type="submit" ng-click="postJiuyan()" style="border-radius: 15px">
+            <i class= "ion-left ion-settings"></i>  开始
+        </button>
+        <p>{{selectedStaff}}</p>
+        <p>皮皮通</p>
+    </ion-content>
+</ion-view>

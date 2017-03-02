@@ -1,0 +1,70 @@
+﻿<ion-view title="购物车">
+   <!--  <ion-nav-buttons side="right"  >
+        <div class="tab-item has-badge" ng-controller="numCtrl">
+            <a ui-sref="tabs.checkout"><i class="icon ion-ios-cart carticon" style="color:#313131"></i></a>
+            <i class="badge num" style="background: red;">{{totalnum()}}</i>
+        </div>
+    </ion-nav-buttons> -->
+    <ion-content ng-controller="cartdetailCtrl">
+        
+            <!--判断购物车是否为空-->
+            <div class="item" ng-hide="cartdata.hide">
+            	<div class="row">
+            		<div class="col col-70"> <span>您的购物车是空的。</span></div>
+            		<div class="col col-20"> <a ng-click="goproduct()" class="button button-small" style="background:red;color:#fff">
+                    继续购物
+                </a></div> 
+            	</div>
+              
+                
+            </div>
+
+            <!--购物车商品列表-->
+			<div ng-show="cartdata.show">
+            <div class="item" style="padding:0" ng-repeat="item in items" >
+                <div class="row">
+				<div class="col col-10">
+
+	<label class="checkbox" style="position:relative;top:10px;left:-0.5rem">
+       <input type="checkbox" ng-model="ff" ng-click="xuanzhong($event,item.sku_id)" ng-checked="isChecked(item.sku_id)" >
+     </label>
+ </div>
+                    <div class="col col-20"><img ng-src="{{item.img}}" style="height:70px !important"></div>
+                    <div class="col col-40 ">
+                        <h2>{{item._sku_.name}}</h2>
+                        <div class="numpadding">
+                            <a class="spanboder" ng-click="item.number=int(item.number)-1;addnum(item);aaa.sku_numbers=int(aaa.sku_numbers)-1">-</a>
+                            <span class="spanboder">{{item.number}}</span>
+                            <a class="spanboder" ng-click="item.number=int(item.number)+1;addnum(item);aaa.sku_numbers=int(aaa.sku_numbers)+1">+</a>
+                            
+                        </div >
+
+                    </div>
+                    <div class="col col-30">
+                        <h2 style="font-weight: bold">{{item._sku_.shop_price*item.number|currency:"￥"}}</h2>
+                        <a class="button button-small" style="background:red;color:#fff" ng-click="delete(item)">
+                            　删　除　
+                        </a>
+                    </div>
+                </div>
+            </div>
+          </div>
+        <!--商品小计-->
+			<div ng-show="cartdata.show">
+            <div class="item text-center">
+                <span class="total" style="color:red">商品小计 (共{{aaa.sku_numbers}}件)</span>
+                <span class="total">{{totalMoney()|currency:"￥"}}</span>
+            </div>
+            <div class="item text-center">
+                <a  class="button button-small" style="background:red;color:#fff" ui-sref="tabs.goproduct">
+                    继续购物
+                </a>
+                <a  ng-click="submit()" class="button button-small" style="background:red;color:#fff;margin-left:60px">
+                    结算订单
+                </a>
+            </div>
+        </div>  
+		
+    </ion-content>
+</ion-view>
+

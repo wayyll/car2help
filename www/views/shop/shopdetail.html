@@ -1,0 +1,124 @@
+
+<ion-view title="{{shopname}}" ng-controller="shopdetailCtrl">
+	 <!-- <ion-nav-buttons side="right" >
+        <a ui-sref="tabs.checkout">
+        <div class="tab-item has-badge" ng-controller="numCtrl">
+            <i class="icon ion-ios-cart carticon" style="color:#313131"></i>
+            <i class="badge num"style="background: red;">{{totalnum()}}</i>
+        </div>
+        </a>
+    </ion-nav-buttons> -->
+    <!--使用ionContent来正确地定位ionScroll-->
+    <ion-content>
+        
+
+	<div class="row" >
+		<div class="col">
+			<img style="width:100%" src="{{img}}"/>
+		</div>
+		
+	</div>
+	<div class="card" style="margin-top:-10px">
+				<div class="item item-text-wrap">
+					{{content}}
+				</div>
+			</div>
+        <div class="row">
+            <div  ng-class="addClass(0)" ng-click="activeSlide(0)" class="taba">产 品 </div>
+            <div  ng-class="addClass(1)" ng-click="activeSlide(1)"class="taba">维 修</div>
+			<div  ng-class="addClass(2)" ng-click="activeSlide(2)"class="taba">评 价</div>
+        </div>
+        <ion-slide-box auto-play="false"  on-slide-changed="slideChanged(index)" active-slide="slideIndex" show-pager="false" delegate-handle="bottom">
+            <ion-slide>
+                <div class="row">
+                   <div class="item item-input item-select col col-50" style="border: none;font-size: 0.7rem;z-index: 99;">
+					<div id="">
+						&nbsp;
+					</div>
+					<select  style="padding-right:3rem !important;max-width: 114%;"
+					ng-model="selectedCategory" ng-change="fenlei(selectedCategory)" >
+						<option value="" >全部分类</option>
+						<option ng-repeat="x in categorys" ng-value="{{x.id}}">{{x.name}}</option>
+					</select>
+
+				</div>
+				<div class="item item-input item-select col col-50 " style="border: none;border-left: 1px solid #dbdbdb;font-size: 0.7rem;">
+						<div id="">
+						&nbsp;
+						</div>
+					<select style="max-width: 114%;" ng-model="orderss" ng-change="paixu(orderss,selectedCategory)">
+						<option value="">默认排序</option>
+						<option value="Hprice">价格从高到低</option>
+						<option value="Lprice">价格从低到高</option>
+						<option value="Hsales">销量从高到低</option>
+						<option value="Lsales">销量从低到高</option>
+					</select>
+				</div>
+                </div>
+                 <div class="list row"style="flex-flow: row wrap;">
+                    <div class="col col-50" ng-repeat="i in sku" ng-click="toproDetail(i)" >
+                        <img ng-src="{{i.thumb}}" alt="" style="width:90%;">
+						<p style="text-align:center">{{i.name}}</p>
+						<p style="color:red;margin-top:-5px;text-align:center">{{i.shop_price}}</p>
+                    </div>
+                </div>
+            </ion-slide>
+
+           <ion-slide>
+               <div class="row">
+                    <!--<div class="item item-input item-select col col-50" style="border: none;font-size: 0.7rem;z-index: 99;">
+                        <div id="">
+                            &nbsp;
+                        </div>
+                        <select  style="padding-right: 5rem !important;max-width: 114%;">
+                            <option value="">全部分类</option>
+                            <option value="">电动车</option>
+                            <option value="">摩托车</option>
+                            <option value="">配件</option>
+                        </select>
+                    </div>
+                    <div class="item item-input item-select col col-50 "style="border: none;border-left: 1px solid #dbdbdb;font-size: 0.7rem;">
+                        <div id="">
+                            &nbsp;
+                        </div>
+                        <select style="padding-right: 5rem !important;max-width: 114%;">
+                            <option value="">智能排序</option>
+                            <option value="">好评优先</option>
+                            <option value="">价低优先</option>
+                        </select>
+                    </div> -->
+                </div>
+            </ion-slide>
+			
+			<ion-slide>
+			<ul class="list">
+			<button class="button button-block" style="background:#3cb936;color:white" ng-click="showPopup()">发表评论</button>
+    <li ng-repeat="i in assess" style="margin-bottom:0px">
+    	  <div class="row">
+			<div class="col col-20">
+			<img ng-src="{{i.member_img}}" style="width:100%">
+    	  </div>
+    	  	<div class="col col-80">
+    	  	{{i.member_name}} <span style="margin-left:1rem;color:red">{{i.mood}}</span>
+    	  
+    	  	<span style="text-align:right;margin-left:1rem">{{i._datetime}}</span>
+			<br/>
+			<br/>
+			<p style="width:90%">{{i.content}}</p>
+    	  	</div>
+    	  </div>
+    <br/>
+		<div class="row" style="margin-top:-35px">
+		<div class="col col-25" ng-repeat="a in i.img_list">
+		<img ng-src="{{a}}"/>
+		</div>
+		</div>
+     
+     </li>
+	 </ul>
+			</ion-slide>
+
+        </ion-slide-box>
+
+    </ion-content>
+</ion-view>

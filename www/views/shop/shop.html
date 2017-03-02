@@ -1,0 +1,22 @@
+<ion-view  id="activity" ng-controller="shopstoreCtrl">
+ <ion-nav-title >
+            <div class="item item-input item-input-index" ng-controller="serchCtrl" style="width:75%;margin:5px auto">
+                <input type="text"class="headerInput "ng-model="shopsearch" placeholder="搜索店铺" >
+                <a ng-click="shopserch(shopsearch)">
+                    <i class="icon ion-search placeholder-icon"style="color:#3cb936 !important"></i>
+                </a>
+            </div>
+        </ion-nav-title>
+	<ion-content >
+		
+			 <div class="row shopimg row-wrap " >
+                <div class="col col-50" ng-click="toDetail(item)" ng-repeat="item in data">
+                    <img  ng-src="{{item.logo}}" style="height:5.5rem;border-radius: 5px;">
+                    <p>
+                      {{item.seller_name}}
+                       {{item.shopid}}
+                    </p>
+                </div>
+            </div>
+	</ion-content>
+</ion-view>

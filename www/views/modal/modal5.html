@@ -1,0 +1,32 @@
+﻿<ion-modal-view ng-controller="completeCtrl">
+	<ion-header-bar class=""style="background: #fff !important;border-bottom: 1px solid #dbdbdb;">
+		
+        <a style="font-size:30px;padding-left:10px" ng-click="closeModal()"><i class="ion-ios-arrow-left" style="color: #7f7f7f !important;"></i></a>
+   
+		<h1 class="title" style="color:#000">添加地址</h1>
+		
+	</ion-header-bar>
+	<ion-content>
+		 <div class="list has-header row" style="margin:0 ; padding:0 ;
+    ">
+        <div class="item col col-10" style="font-size:2px">地区</div>
+        <div class="item item-input item-select col col-30">
+            <select ng-model="selectedProvince"
+                    ng-options="item.name for item in area">
+                <option value="">-省份-</option>
+            </select>
+        </div>
+        <div class="item item-input item-select col col-30" >
+            <select ng-model="city" ng-options="city.name for city in selectedProvince.lv2">
+                <option value="">-城市-</option>
+            </select>
+        </div>
+        <div class="item item-input item-select col col-30">
+            <select ng-model="qu"  ng-options="qu.name for qu in city.lv3">
+                <option value="">-区县-</option>
+            </select>
+        </div>
+    </div>
+		
+	</ion-content>
+</ion-modal-view>

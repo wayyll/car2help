@@ -1,0 +1,35 @@
+<ion-view title="商品评价" ng-controller="cartdetailCtrl">
+	<ion-nav-buttons side="right" >
+       
+          <i class="ion-android-add" style="font-size: 2rem;margin-right: 1rem;" ng-click="showPopup()"></i>  
+       
+    </ion-nav-buttons>
+	<ion-content>
+		<ul class="list">
+		 <li ng-repeat="i in assess" style="margin-bottom:0px">
+    	  <div class="row">
+			<div class="col col-20">
+			<img ng-src="{{i.member_img}}" style="width:100%">
+    	  </div>
+    	  	<div class="col col-80">
+    	  	{{i.member_name}} <span style="margin-left:1rem;color:red">{{i.mood}}</span>
+    	  
+    	  	<span style="text-align:right;margin-left:1rem">{{i._datetime}}</span>
+			<br/>
+			<br/>
+			<p style="width:90%">{{i.content}}</p>
+    	  	</div>
+    	  </div>
+    <br/>
+		<div class="row" style="margin-top:-35px">
+		<div class="col col-25" ng-repeat="a in i.img_list">
+		<img ng-src="{{a}}"/>
+		</div>
+		</div>
+     
+     </li>
+   
+	 </ul>
+     
+	</ion-content>
+</ion-view>
