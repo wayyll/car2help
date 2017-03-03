@@ -7,7 +7,7 @@
 		
 		$http.post($rootScope.localhost+"index.php?m=order&c=api_order&a=detail&order_sn="+$stateParams.order_sn,{order_sn:$stateParams.order_sn,balance_checked:"",pay_code:$scope.fund,pay_bank:""
 		}).success(function(data){
-			var inApp = window.open(data.data, '_blank', 'location=no', 'zoom=yes')
+			var inApp = window.open(data.data, '_system', 'location=no', 'zoom=yes')
 		})
 	 }
 	 

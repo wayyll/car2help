@@ -67,12 +67,12 @@ if ($rootScope.isLogin == false) {
 	console.log(spu_id2)
 	$scope.addassess = function (res) {
 		console.log(res)
-
-		
-			$http.post($rootScope.localhost + "index.php?m=comment&c=api_member&a=add", {
+			$http.get($rootScope.localhost + "index.php?m=goods&c=api&a=goods_detail&sku_id="+spu_id2).success(function(dddd){
+				$http.post($rootScope.localhost + "index.php?m=comment&c=api_member&a=add", {
 				spu_id: spu_id2,
 				content: res.assess,
-				mood: res.mood
+				mood: res.mood,
+				seller_id:dddd.seller_id
 			})
 			.success(function (data, status) {
 				if (data.error == 0) {
@@ -89,6 +89,9 @@ if ($rootScope.isLogin == false) {
 				}
 
 			})
+			})
+		
+			
 		
 	}
 	$scope.shuaxin = function () {
