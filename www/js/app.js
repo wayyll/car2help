@@ -1,5 +1,22 @@
 var myapp=angular.module("myapp",["ionic","mycart","baiduMap","ngSanitize","ngCordova"]);
-    myapp.controller("myCtrl",function($rootScope,$http,$scope,$state){
+
+myapp.controller("myCtrl",function($rootScope,$http,$scope,$state){
+//   if(typeof cordova.plugins.settings.openSetting != undefined){
+//  cordova.plugins.settings.openSetting("location_source", function(){
+//         alert("opened nfc settings")
+//      },
+//      function(){
+//          console.log("failed to open nfc settings")
+//      });
+//}
+//import { StatusBar } from 'ionic-native';
+//
+//
+//StatusBar.overlaysWebView(true); // let status bar overlay webview
+//
+//StatusBar.backgroundColorByHexString('#ffffff'); // set status bar to white
+
+
 //if(typeof cordova.plugins.settings.openSetting != undefined){
 //  cordova.plugins.settings.openSetting("location_source", function(){
 //         alert("opened nfc settings")
@@ -49,6 +66,9 @@ $rootScope.personusername=localStorage.getItem("username")
 
     });
 myapp.config(function($stateProvider,$urlRouterProvider,$ionicConfigProvider){
+ $ionicConfigProvider.views.maxCache(10);
+  //配置android平台的缓存
+  $ionicConfigProvider.platform.android.views.maxCache(10);
     $ionicConfigProvider.backButton.text("返回");
     $ionicConfigProvider.backButton.previousTitleText("返回");
 

@@ -67,22 +67,10 @@ angular.module("myapp")
 
 	};
 	$scope.toShop = function (product) {
-		$http.get($rootScope.localhost+"index.php?m=goods&c=api&a=all").success(function (data) {
-
-			angular.forEach(data.data, function (item) {
-
-				angular.forEach(item.goods, function (item1) {
-					angular.forEach(item1.sku_arr, function (sku) {
-						if (product.sku_id == sku.sku_id) {
-							$scope.shopid = item1.seller_id
-								$state.go("tabs.shopdetail", {
-									shopid: item1.seller_id
-								})
-						}
-					})
-				})
-			})
-		})
+		console.log(product.seller_id)
+			
+			$state.go("tabs.shopdetail",{id:product.seller_id})
+		
 
 		// 将go有动画效果
 		$ionicViewSwitcher.nextDirection("forward");
