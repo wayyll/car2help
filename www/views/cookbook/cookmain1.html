@@ -33,13 +33,13 @@
 			  </div>
 			</div>
         <!--<ion-refresher pulling-text="换一批" pulling-icon="ion-wrench" spinner="ripple" on-refresh="refresh()"></ion-refresher>-->
-        <div class="list" ng-repeat="item in data" id="liansuodian" style="margin-top:5px;padding:2px" >
+        <div class="list" ng-repeat="item in data" id="liansuodian" style="margin-top:5px;padding:2px;font-size:1.2rem ;" >
            <li class="item" >
                <div class="item item-thumbnail-left" ng-click="goshop(item)">
                    <img ng-src="{{localhost}}{{item.avatar}}">
                    <div class="row">
                        <h3 class="col col-70">{{item.shopName}}</h3>
-                       <span style="font-size:0.8rem ;margin-right:3%" class="col col-25">距您{{item.distance}}km</span>
+                       <span style="margin-right:3%;font-size:1.2rem " class="col col-25">距您{{item.distance}}km</span>
                    </div>
 
                    <div class="row">
@@ -65,9 +65,11 @@
 					
               </div>
 			  <div class="row">
-               <button class="col col-50 button button-stable"  ng-click="jiuYuanFirst(item)">
+               <button class="col col-33 button button-stable"  ng-click="jiuYuanFirst(item)">
                    <i class="ion-wrench"></i> 点击救援</button>
-             <a class="col col-50 button button-stable" ng-click="openmap(item)">
+                    <a class="col col-33 button button-stable" ng-click="callphone(item)">
+                   <i class="ion-android-call"></i> 呼叫店铺</a>
+             <a class="col col-33 button button-stable" ng-click="openmap(item)">
                    <i class="ion-android-navigate"></i> 导航到店</a>
 				   </div>
            </li>

@@ -169,4 +169,8 @@ angular.module("myapp").controller("cookmainCtrl", function ($scope, $http, $ion
 		});
 
 	}
+	//拨打电话
+	$scope.callphone=function(i){
+		var inApp = window.open("tel:" + i.mobile, '_system', 'location=no', 'zoom=yes');
+	}
 });
