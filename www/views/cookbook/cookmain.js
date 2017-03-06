@@ -152,10 +152,11 @@ angular.module("myapp").controller("cookmainCtrl", function ($scope, $http, $ion
 		});
 	};
 	$scope.openmap = function (res) {
+		$scope.jingwei=res.lat + "," + res.lng
 		appAvailability.check(
 			　　'com.baidu.BaiduMap', // URI Scheme 这里是app的包名，可以搜一些包名查看器，一般都是com.xxx.xxxx格式的
 			　　function() { // Success callback
-			　　　　var inApp = window.open("bdapp://map/marker?location=" + res.lat + ',' + res.lng + "&title=" + res.shopName + "&traffic=on", '_system', 'location=no', 'zoom=yes');
+			　　　　var inApp = window.open("bdapp://map/marker?location="+$scope.jingwei+"&title="+res.shopName+"&traffic=on", '_system', 'location=no', 'zoom=yes');
 			　　
 		},
 			　　function() { // Error callback
