@@ -10,7 +10,7 @@ if ($rootScope.isLogin == false) {
 			$scope.openModal()
 		} else if ($rootScope.isLogin == true) {
 			$scope.closeModal()
-		
+		$scope.pro.mood="positive"
 		// 一个精心制作的自定义弹窗
 		var myPopup = $ionicPopup.show({
 				template: "<select ng-model='pro.mood' style='width:100%'><option value='positive'>好评</option><option value='neutral'>中评</option><option value='negative'>差评</option></select><br/><br/><textarea  ng-model='pro.assess' rows='5'></textarea>",

@@ -9,17 +9,17 @@
     </ion-nav-title>
     <div class=" row" style="position:fixed;top:40px;left:0px;z-index:999">
         <div class="col col-30">
-            <select ng-model="selectedProvince" ng-options="item.name for item in area" style="width:100%;border:none">
+            <select ng-model="selectedProvince" ng-options="item.name for item in area" style="width:100%;border:none;background:none">
                 <option value="">-省份-</option>
             </select>
         </div>
         <div class="col col-30" >
-            <select ng-model="city" ng-options="city.name for city in selectedProvince.lv2" style="width:100%;border:none">
+            <select ng-model="city" ng-options="city.name for city in selectedProvince.lv2" style="width:100%;border:none;background:none">
                 <option value="">-城市-</option>
             </select>
         </div>
         <div class="col col-30">
-            <select ng-model="qu"  ng-options="qu.name for qu in city.lv3" style="width:100%;border:none">
+            <select ng-model="qu"  ng-options="qu.name for qu in city.lv3" style="width:100%;border:none;background:none">
                 <option value="">-区县-</option>
             </select>
         </div>

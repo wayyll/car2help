@@ -4,49 +4,40 @@
 
 angular.module("myapp")
 .controller("cartdetailCtrl", function ($scope, $stateParams, $http, shopcart, $state, $rootScope, $ionicViewSwitcher, $ionicPopup, $interval, $ionicModal) {
-	
+
 	var skuid = $stateParams.sku_id;
 	var sellerid = $stateParams.seller_id
-	var ddd = $rootScope.productdata
+		var ddd = $rootScope.productdata
 		//console.log(ddd)
-		$http.get($rootScope.localhost+"index.php?m=goods&c=api&a=goods_comment&sku_id="+skuid).success(function(data){
-			console.log(data)
-			$scope.count=data.data.count
+		$http.get($rootScope.localhost + "index.php?m=goods&c=api&a=goods_comment&sku_id=" + skuid).success(function (data) {
+		
+			$scope.count = data.data.count
 		})
 
 		$scope.shuaxin = function () {
-		$http.get($rootScope.localhost+"index.php?m=goods&c=api&a=goods_detail&sku_id="+skuid).success(function (data) {
-			console.log(data)
-			$scope.product=data
-			angular.forEach($scope.product.sku_arr,function(item){
-				$scope.product.sku_id=item.sku_id
-			})
-					
-					if(data.prom_type=="time"){
-							$interval(function () {
-									
-									data.prom_time = data.prom_time - 1
-									var d = new Date(good.prom_time * 1000);
-
-									$scope.date = d.getDate()
-										$scope.hour = d.getHours()
-										$scope.min = d.getMinutes()
-										$scope.sec = d.getSeconds()
-
-										$scope.time = "限时促销："+$scope.date + "天" + $scope.hour + "时" + d.getMinutes() + "分" + d.getSeconds() + "秒"
-
-								}, 1000)	
-					}
-								
-							
-								
-								
-
-						
-
-					
-				
+		$http.get($rootScope.localhost + "index.php?m=goods&c=api&a=goods_detail&sku_id=" + skuid).success(function (data) {
 			
+			$scope.product = data
+				angular.forEach($scope.product.sku_arr, function (item) {
+					$scope.product.sku_id = item.sku_id
+				})
+
+				if (data.prom_type == "time") {
+					$interval(function () {
+
+						data.prom_time = data.prom_time - 1
+							var d = new Date(good.prom_time * 1000);
+
+						$scope.date = d.getDate()
+							$scope.hour = d.getHours()
+							$scope.min = d.getMinutes()
+							$scope.sec = d.getSeconds()
+
+							$scope.time = "限时促销：" + $scope.date + "天" + $scope.hour + "时" + d.getMinutes() + "分" + d.getSeconds() + "秒"
+
+					}, 1000)
+				}
+
 		});
 	}
 	$scope.shuaxin()
@@ -56,7 +47,7 @@ angular.module("myapp")
 			$scope.openModal()
 		} else {
 			$scope.closeModal()
-			var addcart = $rootScope.localhost+"index.php?m=order&c=api_cart&a=cart_add"
+			var addcart = $rootScope.localhost + "index.php?m=order&c=api_cart&a=cart_add"
 				$http.post(addcart, {
 					sku_id: product.sku_id,
 					nums: "1"
@@ -68,9 +59,10 @@ angular.module("myapp")
 	};
 	$scope.toShop = function (product) {
 		console.log(product.seller_id)
-			
-			$state.go("tabs.shopdetail",{id:product.seller_id})
-		
+
+		$state.go("tabs.shopdetail", {
+			id: product.seller_id
+		})
 
 		// 将go有动画效果
 		$ionicViewSwitcher.nextDirection("forward");
@@ -85,39 +77,48 @@ angular.module("myapp")
 
 	}
 	//加载购物车
-	$scope.getCart = function () {
-		$scope.items = []
+	$scope.items = []
 
-		$scope.cartdata = {}
-		$http.get($rootScope.localhost+"index.php?m=order&c=api_cart&a=get_carts").success(function (data, stats) {
-			$scope.aaa = data.data
-				//判断是否登录或者是否有数据
-				if (data.data.sku_counts != 0 && data.data != "请先登录") {
-					console.log(data.data)
-					$scope.cartdata.show = true
-						$scope.cartdata.hide = true
-						angular.forEach(data.data.skus, function (item, index, array) {
-							$http.get($rootScope.localhost+"index.php?m=goods&c=api&a=all").success(function (data) {
-								$scope.tempdata = data.data;
-								angular.forEach($scope.tempdata, function (item1) {
-									angular.forEach(item1.goods, function (good) {
-										if (item._sku_.spu_id == good.spu_id) {
-											item.img = good.img_list
-										}
-									})
-								})
+	$scope.cartdata = {}
+	$http.get($rootScope.localhost + "index.php?m=order&c=api_cart&a=get_carts").success(function (data, stats) {
+		console.log(data)
+		$scope.aaa = data.data
+			//判断是否登录或者是否有数据
+			if (data.data.sku_counts != 0 && data.data != "请先登录") {
+				console.log(data.data)
+				$scope.cartdata.show = true
+					$scope.cartdata.hide = true
+					angular.forEach(data.data.skus, function (item, index, array) {
+						$http.get($rootScope.localhost + "index.php?m=goods&c=api&a=goods_list").success(function (data) {
+
+							$scope.tempdata = data.data;
+							angular.forEach($scope.tempdata.lists, function (item1) {
+
+								if (item._sku_id == item1.sku_id) {
+									item.img = item1.thumb
+								}
 
 							})
-							
-
-							$scope.items.push(item)
 
 						})
-				} else {
-					$scope.cartdata.show = false
-						$scope.cartdata.hide = false
-				}
-		})
+
+						$scope.items.push(item)
+
+					})
+					
+					
+					
+			} else {
+				$scope.cartdata.show = false
+					$scope.cartdata.hide = false
+			}
+
+		
+	})
+	
+
+	$scope.getCart = function () {
+
 		$state.go("tabs.checkout")
 	}
 	$scope.addcartAlert = function () {
@@ -131,13 +132,13 @@ angular.module("myapp")
 		if (item.number == 0) {
 			item.number = 1
 		}
-		$http.get($rootScope.localhost+"index.php?m=order&c=api_cart&a=set_nums&sku_id=" + item.sku_id + "&nums=" + item.number).success(function (data) {
-			console.log(data)
+		$http.get($rootScope.localhost + "index.php?m=order&c=api_cart&a=set_nums&sku_id=" + item.sku_id + "&nums=" + item.number).success(function (data) {
+			
 		})
 	}
 	//购物车删除
 	$scope.delete  = function (item) {
-		$http.get($rootScope.localhost+"index.php?m=order&c=api_cart&a=delpro&sku_id=" + item.sku_id).success(function (data) {
+		$http.get($rootScope.localhost + "index.php?m=order&c=api_cart&a=delpro&sku_id=" + item.sku_id).success(function (data) {
 			$scope.items.splice($scope.items.indexOf(item), 1);
 			if ($scope.items.length == 0) {
 				$scope.cartdata.show = false
@@ -168,7 +169,7 @@ angular.module("myapp")
 			$rootScope.xzarr += $rootScope.xzarr1[i] + ";"
 		}
 
-		console.log($rootScope.xzarr)
+	
 
 	}
 
@@ -196,26 +197,28 @@ angular.module("myapp")
 			sku_id: product.sku_id
 		})
 	}
-/*
+	/*
 	$ionicModal.fromTemplateUrl('views/modal/modal.html', {
-		scope: $scope, // 作用域使用父作用域
+	scope: $scope, // 作用域使用父作用域
 	}).then(function (modal) {
-		$scope.modal = modal;
+	$scope.modal = modal;
 	});
 	$scope.openModal = function () {
-		$scope.modal.show();
+	$scope.modal.show();
 	};
 
 	$scope.closeModal = function () {
-		$scope.modal.hide();
+	$scope.modal.hide();
 	};
 	$scope.$on('$destroy', function () {
-		$scope.modal.remove();
+	$scope.modal.remove();
 	});
-*/
+	 */
 	$scope.goChatRoom = function (product) {
 		if ($rootScope.isLogin) {
-			$state.go("tabs.chatroom",{seller_id:product.seller_id})
+			$state.go("tabs.chatroom", {
+				seller_id: product.seller_id
+			})
 			$ionicViewSwitcher.nextDirection("forward");
 		} else {
 			$scope.showConfirm();
@@ -235,7 +238,7 @@ angular.module("myapp")
 			if (res) {
 				$scope.openModal();
 			} else {
-				console.log('暂不');
+				
 			}
 		});
 	};

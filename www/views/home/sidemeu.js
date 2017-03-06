@@ -382,6 +382,7 @@ $rootScope.personusername=localStorage.getItem("username")
 				localStorage.removeItem("isLogin")
 				localStorage.removeItem("useravatar")
 				localStorage.removeItem("username")
+				localStorage.removeItem("gouwuche")
                 $rootScope.isLogin = false;
                 $rootScope.isMessage = false;
                 $rootScope.personInformation = {};

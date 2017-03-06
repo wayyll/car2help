@@ -1,7 +1,7 @@
 <ion-view title="商品评价" ng-controller="cartdetailCtrl">
 	<ion-nav-buttons side="right" >
        
-          <i class="ion-android-add" style="font-size: 2rem;margin-right: 1rem;" ng-click="showPopup()"></i>  
+          <i class="ion-android-add" style="font-size: 3rem;margin-right: 1rem;" ng-click="showPopup()"></i>  
        
     </ion-nav-buttons>
 	<ion-content>
@@ -18,6 +18,8 @@
 			<br/>
 			<br/>
 			<p style="width:90%">{{i.content}}</p>
+			
+			<p style="width:90%;color:#8F8F8F">{{i.reply_content |currency:"商家回复："}}</p>
     	  	</div>
     	  </div>
     <br/>

@@ -68,8 +68,8 @@ $rootScope.personusername=localStorage.getItem("username")
     $scope.reader = new FileReader();  
     //将文件以Data URL形式读入页面  
     $scope.reader.readAsDataURL(file);  
-   console.log($scope.reader)
-		$rootScope.personavatar=
+   
+		
 	
 		$scope.reader.onload = function(e){ // reader onload start  
 		$rootScope.personavatar=this.result

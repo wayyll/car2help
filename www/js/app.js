@@ -107,6 +107,7 @@ myapp.config(function($stateProvider,$urlRouterProvider,$ionicConfigProvider){
     });
     $stateProvider.state("tabs.home",{
         url:"/home",
+        cache: true,
         views:{"tabs-home":{
             templateUrl:"views/home/home.html",
             controller:"homeCtrl"
